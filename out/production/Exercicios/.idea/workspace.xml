@@ -27,6 +27,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ComissaoDeVendas.executor": "Run",
+    "Application.ConversaoDeMoeda.executor": "Debug",
     "Application.EstoqueMedio.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
