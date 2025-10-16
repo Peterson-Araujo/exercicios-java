@@ -1,3 +1,12 @@
+/*
+Faça um programa para pagamento de comissão de vendedores de peças, levando-se em consideração que sua
+comissão será de 5% do total da venda e que você tem os seguintes dados:
+- Identificação do vendedor
+- Código da peça
+- Preço unitário da peça
+- Quantidade vendida
+*/
+
 import java.util.Scanner;
 
 public class ComissaoDeVendas {
@@ -10,57 +19,70 @@ public class ComissaoDeVendas {
     // Método principal
     public static void main(String[] args) {
 
-        // Instanciação de classes utilizadas
         Scanner sc = new Scanner(System.in);
         ComissaoDeVendas comissao = new ComissaoDeVendas();
 
-        // Criação de variáveis
         String nomeDoVendedor;
         int porcentagem, quantidadeVendida, codigoDaPeca;
-        double valor, precoDaPeca, resultado;
+        double precoDaPeca, valor, resultado;
 
-        System.out.println("--- Cálculo de comissão de vendas ---");
+        System.out.println("--- Cálculo de Comissão de Vendas ---");
         System.out.println("______________________________________");
 
-        // Solicitação de porcentagem de comissão, lançando excessão caso haja porcentagem <= 0
-        System.out.print("Digite a porcentagem de comissão (sem o sinal de %): ");
-        porcentagem = sc.nextInt();
-        if (porcentagem <= 0) {
-            throw new IllegalArgumentException("O valor da porcentagem não pode ser igual ou menor que zero!");
+        try {
+            // Solicitação da porcentagem de comissão
+            System.out.print("Digite a porcentagem de comissão (sem o sinal de %): ");
+            porcentagem = sc.nextInt();
+            if (porcentagem <= 0) {
+                throw new IllegalArgumentException("A porcentagem deve ser maior que zero!");
+            }
+
+            sc.nextLine(); // limpa o buffer do Scanner
+
+            // Nome do vendedor
+            System.out.print("Digite o nome de identificação do vendedor: ");
+            nomeDoVendedor = sc.nextLine();
+
+            // Código da peça
+            System.out.print("Digite o código da peça: ");
+            codigoDaPeca = sc.nextInt();
+
+            // Quantidade vendida
+            System.out.print("Digite a quantidade de peças vendidas: ");
+            quantidadeVendida = sc.nextInt();
+            if (quantidadeVendida <= 0) {
+                throw new IllegalArgumentException("A quantidade vendida deve ser maior que zero!");
+            }
+
+            // Preço da peça
+            System.out.print("Digite o preço da peça: ");
+            precoDaPeca = sc.nextDouble();
+            if (precoDaPeca <= 0) {
+                throw new IllegalArgumentException("O preço da peça deve ser maior que zero!");
+            }
+
+            // Cálculo de valores
+            valor = precoDaPeca * quantidadeVendida;
+            resultado = comissao.calculoComissao(porcentagem, valor);
+
+            // Exibição do resultado formatado
+            System.out.printf(
+                    "\n✅ O vendedor %s (cód. %d)\nrealizou R$ %.2f em vendas\n" +
+                            "e receberá R$ %.2f de comissão (%.0f%%)\n",
+                    nomeDoVendedor,
+                    codigoDaPeca,
+                    valor,
+                    resultado,
+                    (double) porcentagem
+            );
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("\nErro: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("\nOcorreu um erro inesperado. Verifique os dados digitados.");
+        } finally {
+            sc.close();
+            System.out.println("\nPrograma finalizado.");
         }
-
-        System.out.print("Digite o nome de identificação do vendedor: ");
-        nomeDoVendedor = sc.next();
-
-        System.out.print("Digite o código da peça: ");
-        codigoDaPeca = sc.nextInt();
-
-        // Solicitação de quantidade itens vendidos, lançando excessão caso a quantidade seja <= 0
-        System.out.print("Digite a quantidade de peças vendidas: ");
-        quantidadeVendida= sc.nextInt();
-        if (quantidadeVendida <= 0) {
-            throw new IllegalArgumentException("O valor da quantidade vendida não pode ser igual ou menor que zero!");
-        }
-
-        // Solicitação de preço da peça, lançando excessão caso o preço seja <= 0
-        System.out.print("Digite o preço da peça: ");
-        precoDaPeca = sc.nextDouble();
-        if (precoDaPeca <= 0) {
-            throw new IllegalArgumentException("O valor do preço da peça não pode ser igual ou menor que zero!");
-        }
-
-        valor = precoDaPeca * quantidadeVendida;
-        resultado = comissao.calculoComissao(porcentagem, valor); // Chamada do método de cáclulo
-
-        // Mostrando na tela o resultado, trazendo o nome do vendedor, valor e resultado
-        System.out.printf(
-                "O vendedor %s obteve R$ %.2f em vendas e deverá receber R$ %.2f em comissão",
-                nomeDoVendedor,
-                valor,
-                resultado
-        );
-
-        // Fechamento do Scanner
-        sc.close();
     }
 }
