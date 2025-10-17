@@ -31,6 +31,7 @@
     "Application.ConversaoDeMoeda.executor": "Debug",
     "Application.EstoqueMedio.executor": "Run",
     "Application.LeituraDeValores.executor": "Run",
+    "Application.LitrosDeCombustivel.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/peter/OneDrive/Documentos/Estudos-Projetos/Java/exercicios-logica"
