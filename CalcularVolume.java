@@ -38,7 +38,7 @@ public class CalcularVolume {
             System.out.printf("O valor do volume desta lata é de %.2f", resultado);
 
 
-        } catch (IllegalArgumentException e) {
+        } catch (InputMismatchException e) {
             System.out.println("Digite um valor válido (maior que 0)!");
         } finally {
             System.out.println("\nPrograma finalizado!");
