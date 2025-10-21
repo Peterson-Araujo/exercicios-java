@@ -27,6 +27,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.CalcularVolume.executor": "Run",
     "Application.ComissaoDeVendas.executor": "Run",
     "Application.ConversaoDeMoeda.executor": "Debug",
     "Application.ConversorDeTemperatura.executor": "Run",
