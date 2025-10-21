@@ -65,16 +65,16 @@ public class LitrosDeCombustivel {
                     quilometrosPorLitros,
                     combustivelUtilizado
             );
-    } catch (InputMismatchException e) { // tratamento da exceção caso haja erro de entrada (. no lugar de , ou double no lugar de inteiro)
-        System.out.println("\n Erro de entrada de dados!");
-        System.out.println("• Use apenas números inteiros nos campos de 'tempo' e 'km por litro'.");
-        System.out.println("• Use ponto (,) — e não vírgula (.) — para separar decimais em 'velocidade média'.");
-    } catch (IllegalArgumentException e) { // tratamento para caso de algum valor das variáveis ser menor que zero
-            System.out.println("O valor digitado deve ser maior do que zero!");
-    } finally {
-        System.out.println("Programa finalizado!");
-        sc.close();
-    }
+        } catch (InputMismatchException e) { // tratamento da exceção caso haja erro de entrada (. no lugar de , ou double no lugar de inteiro)
+            System.out.println("\n Erro de entrada de dados!");
+            System.out.println("• Use apenas números inteiros nos campos de 'tempo' e 'km por litro'.");
+            System.out.println("• Use ponto (,) — e não vírgula (.) — para separar decimais em 'velocidade média'.");
+        } catch (IllegalArgumentException e) { // tratamento para caso de algum valor das variáveis ser menor que zero
+                System.out.println("O valor digitado deve ser maior do que zero!");
+        } finally {
+            System.out.println("Programa finalizado!");
+            sc.close();
+        }
     }
 
 }

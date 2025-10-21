@@ -29,6 +29,7 @@
   "keyToString": {
     "Application.ComissaoDeVendas.executor": "Run",
     "Application.ConversaoDeMoeda.executor": "Debug",
+    "Application.ConversorDeTemperatura.executor": "Run",
     "Application.EstoqueMedio.executor": "Run",
     "Application.LeituraDeValores.executor": "Run",
     "Application.LitrosDeCombustivel.executor": "Run",
